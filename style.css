@@ -11,3 +11,16 @@ body {
     align-items: center;
     background-color: #242933;
 }
+
+.calculator__container {
+    width: 326px;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border: 5px solid #596172;
+    border-radius: 12px;
+    padding: 1rem;
+    background-color: #242933;
+    gap: 1px;
+}
