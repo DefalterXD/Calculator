@@ -24,3 +24,59 @@ body {
     background-color: #242933;
     gap: 1px;
 }
+
+.output__container {
+    width: 100%;
+    height: 80px;
+    background-color: #606674;
+    font-size: 4rem;
+    padding-right: 0.4rem;
+    display: flex;
+    justify-content: end;
+}
+
+.clear__container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 1px;
+}
+
+.clear__container>.clear__btn:nth-child(1) {
+    flex: 1;
+}
+
+.numbers__container {
+    width: 75%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: start;
+    justify-content: space-between;
+    gap: 1px;
+}
+
+.operations__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1px;
+}
+
+.clear__btn,
+.number__btn,
+.operation__btn {
+    font-size: 1.2rem;
+    height: 70px;
+    width: 70px;
+    background-color: #424b5e;
+    color: #f6f0e9;
+}
+
+.number__btn {
+    flex: auto;
+}
+
+.clear__btn,
+.operation__btn {
+    background-color: #d3444d;
+}
