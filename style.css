@@ -69,17 +69,31 @@ body {
 .number__btn,
 .operation__btn {
     font-size: 1.2rem;
+    border-radius: 0px;
     height: 70px;
     width: 70px;
     background-color: #424b5e;
     color: #f6f0e9;
+    border-style: none;
+    cursor: pointer;
 }
 
 .number__btn {
     flex: auto;
+    transition: background-color 400ms linear;
 }
 
 .clear__btn,
 .operation__btn {
     background-color: #d3444d;
+    transition: background-color 400ms linear;
+}
+
+.number__btn:hover {
+    background-color: #606674;
+}
+
+.clear__btn:hover,
+.operation__btn:hover {
+    background-color: #d3686f;
 }
