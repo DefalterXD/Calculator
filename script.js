@@ -51,6 +51,8 @@ const isOperatorWasInputed = function isOperatorWasInputedInTheMiddleOfTheExpres
         whichOperator(operator);
         // PRINT out the result of the operation in output container
         outputContainer.textContent = firstNumber;
+        // SET result from evaluation to backup variable
+        numberFromResultOperation = firstNumber.toString().split('');
         // SET secondNumber to zero
         secondNumber = 0;
 
@@ -62,6 +64,8 @@ const isOperatorWasInputed = function isOperatorWasInputedInTheMiddleOfTheExpres
         whichOperator(operator);
         // PRINT out the result of the operation in output container
         outputContainer.textContent = firstNumber;
+        // SET result from evaluation to backup variable
+        numberFromResultOperation = firstNumber.toString().split('');
         // SET secondNumber to zero
         secondNumber = 0;
     }
