@@ -11,6 +11,8 @@ let operator = null;
 let secondNumber = 0;
 // INIT array variable for all the number output
 let numberFromData = [];
+// INIT array variable for all operations
+const operationsData = ['/', '*', '-', '+', '='];
 
 // DEFINE isNumberWasInputed function expression
 const isNumberWasInputed = function isNumberWasInputedAtTheStartOfTheExpression(input) {
