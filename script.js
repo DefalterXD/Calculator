@@ -180,6 +180,18 @@ const convertNumberIntoDecimal = function convertNumberIntoDecimalFromAnyPlace()
     }
 };
 
+// DEFINE isBackspacedWasPressed function expression
+const isBackspacedWasPressed = function isBackspacedWasPressedToClearTheCalculator() {
+    // SET all variables to initial state
+    outputContainer.textContent = 0;
+    firstNumber = 0;
+    operator = null;
+    secondNumber = 0;
+    numberFromData = [];
+    numberFromResultOperation = [];
+};
+
+
 // DEFINE calculatorFunctions function expression
 const calculatorFunctions = function calculatorFunctionsThroughTheEvents(event) {
     const dataFromBtn = event;
@@ -213,6 +225,11 @@ const calculatorFunctions = function calculatorFunctionsThroughTheEvents(event) 
      else if (dataFromBtn === '.') {
         // THEN INVOKES convertNumberIntoDecimal function
         convertNumberIntoDecimal();
+    }
+    // ELSE IF dataFromBtn is an Backspace
+    else if (dataFromBtn === 'Backspace') {
+        // THEN INVOKE isBackspacedWasPressed function
+        isBackspacedWasPressed();
     }
 };
 
