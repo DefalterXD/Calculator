@@ -76,6 +76,10 @@ const calculatorFunctions = function calculatorFunctionsThroughTheEvents(event) 
         // THEN invoke isNumber function
         isNumberWasInputed(dataFromBtn);
     }
+    // ELSE IF dataFromBtn is an operation 
+    else if (operationsData.includes(dataFromBtn)) {
+        isOperatorWasInputed(dataFromBtn);
+    }
 };
 
 // ADD EVENT LISTENER delegation to any button clicked
