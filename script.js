@@ -87,6 +87,12 @@ const gatheringNumberFromInput = function gatheringNumberFromInputForExpressionE
         // THEN assign numberFromData to secondNumber
         secondNumber = Number(numberFromData.join(''));
     }
+    // ELSE IF numberFromResultOperation isn't empty
+    else if ((numberFromResultOperation.length)) {
+        // THEN assign numberFromResultOperation to firstNumber and secondNumber
+        firstNumber = Number(numberFromResultOperation.join(''));
+        secondNumber = Number(numberFromResultOperation.join(''));
+    }
     // ELSE
     else {
         // THEN assign firstNumber to secondNumber
