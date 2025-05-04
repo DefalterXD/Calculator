@@ -43,6 +43,30 @@ const isOperatorWasInputed = function isOperatorWasInputedInTheMiddleOfTheExpres
     // INVOKE gatheringNumberFromInput to get value for numbers 
     gatheringNumberFromInput();
 
+    // IF input is equal operation AND two numbers isn't empty
+    if (input !== '=' && firstNumber !== 0) {
+        // INVOKE whichOperator() with operator passed argument
+        whichOperator(operator);
+        // PRINT out the result of the operation in output container
+        outputContainer.textContent = firstNumber;
+        // SET secondNumber to zero
+        secondNumber = 0;
+
+    }
+    // ELSE IF input isn't equal operator AND two numbers isn't empty 
+    else if (input === '=' && firstNumber !== 0) {
+
+        // THEN INVOKE whichOperator() with operator passed argument
+        whichOperator(operator);
+        // PRINT out the result of the operation in output container
+        outputContainer.textContent = firstNumber;
+        // SET secondNumber to zero
+        secondNumber = 0;
+    }
+    operator = input;
+    // reset for the new input
+    numberFromData = [];
+
 };
 
 // DEFINE gatheringNumberFromInput function expression
