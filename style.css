@@ -77,7 +77,8 @@ body {
     font-style: italic;
     display: flex;
     justify-content: end;
-    align-items: end;
+    align-items: center;
+    text-align: left;
 }
 
 .clear__container {
