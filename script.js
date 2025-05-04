@@ -159,6 +159,26 @@ const convertToNegativeOrPositiveNumber = function convertToNegativeOrPositiveNu
     }
 };
 
+// DEFINE convertNumberIntoDecimal function expression
+const convertNumberIntoDecimal = function convertNumberIntoDecimalFromAnyPlace() {
+    // IF numberFromData includes '.' element
+    if (numberFromData.includes('.')) {
+        // THEN just return 
+        return;
+    }
+    // ELSE IF numberFromData is empty
+    else if (!numberFromData.length && !numberFromResultOperation.length) {
+        // THEN push into numberFromData zero and decimal point
+        numberFromData.push('0','.');
+        outputContainer.textContent = numberFromData.join('');
+    }
+    // ELSE 
+    else {
+        // THEN push just the decimal point
+        numberFromData.push('.');
+        outputContainer.textContent = numberFromData.join('');
+    }
+};
 
 // DEFINE calculatorFunctions function expression
 const calculatorFunctions = function calculatorFunctionsThroughTheEvents(event) {
@@ -188,6 +208,11 @@ const calculatorFunctions = function calculatorFunctionsThroughTheEvents(event) 
         else {
             convertToNegativeOrPositiveNumber(numberFromData);
         }
+    }
+     // ELSE IF dataFromBtn is a point
+     else if (dataFromBtn === '.') {
+        // THEN INVOKES convertNumberIntoDecimal function
+        convertNumberIntoDecimal();
     }
 };
 
