@@ -143,6 +143,23 @@ const convertNumberToPercent = function convertNumberToPercentEquivalentForExpre
 };
 
 
+// DEFINE convertToNegativeOrPositiveNumber function expression
+const convertToNegativeOrPositiveNumber = function convertToNegativeOrPositiveNumberFromExpressionVariable(numbers) {
+    // IF numberFromData isn't empty AND doesn't has minus sign in array
+    if ((numbers.length) && (!numbers.includes('-'))) {
+        // THEN add to start of the array minus sign
+        numbers.unshift('-');
+        outputContainer.textContent = numbers.join('');
+    }
+    // ELSE IF  numberFromData isn't empty AND does has minus sign in array
+    else if ((numbers.length) && (numbers.includes('-'))) {
+        // THEN remove from the start of the array minus sign
+        numbers.shift('-');
+        outputContainer.textContent = numbers.join('');
+    }
+};
+
+
 // DEFINE calculatorFunctions function expression
 const calculatorFunctions = function calculatorFunctionsThroughTheEvents(event) {
     const dataFromBtn = event;
@@ -161,6 +178,16 @@ const calculatorFunctions = function calculatorFunctionsThroughTheEvents(event) 
      else if (dataFromBtn === '%') {
         // THEN INVOKE convertNumberToPercent function
         convertNumberToPercent();
+    }
+    // ELSE IF dataFromBtn is an backtick(minus/plus) operation
+    else if (dataFromBtn === '`') {
+        // THEN INVOKE convertToNegativeOrPositiveNumber function
+        if ((!numberFromData.length) && (numberFromResultOperation.length)) {
+            convertToNegativeOrPositiveNumber(numberFromResultOperation);
+        }
+        else {
+            convertToNegativeOrPositiveNumber(numberFromData);
+        }
     }
 };
 
