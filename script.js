@@ -11,6 +11,8 @@ let operator = null;
 let secondNumber = 0;
 // INIT array variable for all the number output
 let numberFromData = [];
+// INIT array variable for stored result
+let numberFromResultOperation = [];
 // INIT array variable for all operations
 const operationsData = ['/', '*', '-', '+', '='];
 
@@ -119,6 +121,24 @@ const whichOperator = function whichOperatorWasInputed(operator) {
 };
 
 
+// DEFINE convertNumberToPercent function expression
+const convertNumberToPercent = function convertNumberToPercentEquivalentForExpression() {
+    // IF numberFromData isn't empty
+    if (numberFromData.length !== 0) {
+        // THEN convert all the numbers from array into Numbers with a join('') method and evaluate into percent 
+        numberFromData = (Number(numberFromData.join('')) / 100).toString().split('') // assign it back into an numberFromData with toString() and split('') methods
+        // PRINT out the number into output 
+        outputContainer.textContent = numberFromData.join('');
+    }
+    // ELSE
+    else {
+        // SET to percent number from result operation
+        numberFromResultOperation = (Number(numberFromResultOperation.join('')) / 100).toString().split('');
+        outputContainer.textContent = numberFromResultOperation.join('');
+    }
+};
+
+
 // DEFINE calculatorFunctions function expression
 const calculatorFunctions = function calculatorFunctionsThroughTheEvents(event) {
     const dataFromBtn = event;
@@ -132,6 +152,11 @@ const calculatorFunctions = function calculatorFunctionsThroughTheEvents(event) 
     // ELSE IF dataFromBtn is an operation 
     else if (operationsData.includes(dataFromBtn)) {
         isOperatorWasInputed(dataFromBtn);
+    }
+     // ELSE IF dataFromBtn is an percent operation
+     else if (dataFromBtn === '%') {
+        // THEN INVOKE convertNumberToPercent function
+        convertNumberToPercent();
     }
 };
 
