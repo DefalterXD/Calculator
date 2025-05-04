@@ -66,6 +66,35 @@ const gatheringNumberFromInput = function gatheringNumberFromInputForExpressionE
 };
 
 
+// DEFINE whichOperator function expression 
+const whichOperator = function whichOperatorWasInputed(operator) {
+    // CASE string of operator OF
+    switch (operator) {
+        // CONDITION string is multiplication: 
+        case '*':
+            // THEN assign firstNumber multiplied by secondNumber to firstNumber
+            firstNumber = firstNumber * secondNumber;
+            break;
+        // CONDITION string is division:
+        case '/':
+            // THEN assign firstNumber divided by secondNumber to firstNumber
+            firstNumber = firstNumber / secondNumber;
+            break;
+        // CONDITION string is addition: 
+        case '+':
+            // THEN assign firstNumber added by secondNumber to firstNumber
+            firstNumber = firstNumber + secondNumber;
+            break;
+        // CONDITION string is subtraction: 
+        case '-':
+            // THEN assign firstNumber subtracted by secondNumber to firstNumber
+            firstNumber = firstNumber - secondNumber;
+            break;
+    }
+    // ENDCASE
+};
+
+
 // DEFINE calculatorFunctions function expression
 const calculatorFunctions = function calculatorFunctionsThroughTheEvents(event) {
     const dataFromBtn = event;
