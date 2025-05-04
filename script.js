@@ -38,6 +38,34 @@ const isNumberWasInputed = function isNumberWasInputedAtTheStartOfTheExpression(
     }
 };
 
+// DEFINE isOperatorWasInputed function expression
+const isOperatorWasInputed = function isOperatorWasInputedInTheMiddleOfTheExpressionAndEvaluatedIt(input) {
+    // INVOKE gatheringNumberFromInput to get value for numbers 
+    gatheringNumberFromInput();
+
+};
+
+// DEFINE gatheringNumberFromInput function expression
+const gatheringNumberFromInput = function gatheringNumberFromInputForExpressionEvaluation() {
+    // IF numberFromData isn't empty AND firstNumber equals to zero
+    if ((numberFromData.length) && firstNumber === 0) {
+        // THEN assign numberFromData to firstNumber
+        firstNumber = Number(numberFromData.join(''));
+    }
+    // ELSE IF numberFromData isn't empty AND firstNumber isn't equals to zero
+    else if ((numberFromData.length) && secondNumber === 0) {
+        // THEN assign numberFromData to secondNumber
+        secondNumber = Number(numberFromData.join(''));
+    }
+    // ELSE
+    else {
+        // THEN assign firstNumber to secondNumber
+        secondNumber = firstNumber;
+    }
+
+};
+
+
 // DEFINE calculatorFunctions function expression
 const calculatorFunctions = function calculatorFunctionsThroughTheEvents(event) {
     const dataFromBtn = event;
