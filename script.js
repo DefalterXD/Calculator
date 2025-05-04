@@ -237,3 +237,8 @@ const calculatorFunctions = function calculatorFunctionsThroughTheEvents(event) 
 calculatorContainer.addEventListener('click', (event) => {
     calculatorFunctions(event.target.dataset.key);
 });
+
+// ADD EVENT LISTENER delegation to any key pressed from keyboard
+window.addEventListener('keydown', (event) => {
+    calculatorFunctions(event.key);
+});
