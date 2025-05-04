@@ -55,12 +55,9 @@ const isOperatorWasInputed = function isOperatorWasInputedInTheMiddleOfTheExpres
     if (input !== '=' && firstNumber !== 0) {
         // INVOKE whichOperator() with operator passed argument
         whichOperator(operator);
-        // PRINT out the result of the operation in output container
-        outputContainer.textContent = firstNumber;
         // SET result from evaluation to backup variable
         numberFromResultOperation = firstNumber.toString().split('');
-        // SET secondNumber to zero
-        secondNumber = 0;
+        isNumberBeyondLimit(firstNumber);
 
     }
     // ELSE IF input isn't equal operator AND two numbers isn't empty 
@@ -68,12 +65,9 @@ const isOperatorWasInputed = function isOperatorWasInputedInTheMiddleOfTheExpres
 
         // THEN INVOKE whichOperator() with operator passed argument
         whichOperator(operator);
-        // PRINT out the result of the operation in output container
-        outputContainer.textContent = firstNumber;
         // SET result from evaluation to backup variable
         numberFromResultOperation = firstNumber.toString().split('');
-        // SET secondNumber to zero
-        secondNumber = 0;
+        isNumberBeyondLimit(firstNumber);
     }
     operator = input;
     // reset for the new input
@@ -138,13 +132,13 @@ const convertNumberToPercent = function convertNumberToPercentEquivalentForExpre
         // THEN convert all the numbers from array into Numbers with a join('') method and evaluate into percent 
         numberFromData = (Number(numberFromData.join('')) / 100).toString().split('') // assign it back into an numberFromData with toString() and split('') methods
         // PRINT out the number into output 
-        outputContainer.textContent = numberFromData.join('');
+        isNumberBeyondLimit(Number(numberFromData.join('')));
     }
     // ELSE
     else {
         // SET to percent number from result operation
         numberFromResultOperation = (Number(numberFromResultOperation.join('')) / 100).toString().split('');
-        outputContainer.textContent = numberFromResultOperation.join('');
+        isNumberBeyondLimit(Number(numberFromResultOperation.join('')));
     }
 };
 
@@ -155,13 +149,13 @@ const convertToNegativeOrPositiveNumber = function convertToNegativeOrPositiveNu
     if ((numbers.length) && (!numbers.includes('-'))) {
         // THEN add to start of the array minus sign
         numbers.unshift('-');
-        outputContainer.textContent = numbers.join('');
+        isNumberBeyondLimit(Number(numbers.join('')));
     }
     // ELSE IF  numberFromData isn't empty AND does has minus sign in array
     else if ((numbers.length) && (numbers.includes('-'))) {
         // THEN remove from the start of the array minus sign
         numbers.shift('-');
-        outputContainer.textContent = numbers.join('');
+        isNumberBeyondLimit(Number(numbers.join('')));
     }
 };
 
@@ -175,7 +169,7 @@ const convertNumberIntoDecimal = function convertNumberIntoDecimalFromAnyPlace()
     // ELSE IF numberFromData is empty
     else if (!numberFromData.length && !numberFromResultOperation.length) {
         // THEN push into numberFromData zero and decimal point
-        numberFromData.push('0','.');
+        numberFromData.push('0', '.');
         outputContainer.textContent = numberFromData.join('');
     }
     // ELSE 
@@ -212,8 +206,8 @@ const calculatorFunctions = function calculatorFunctionsThroughTheEvents(event) 
     else if (operationsData.includes(dataFromBtn)) {
         isOperatorWasInputed(dataFromBtn);
     }
-     // ELSE IF dataFromBtn is an percent operation
-     else if (dataFromBtn === '%') {
+    // ELSE IF dataFromBtn is an percent operation
+    else if (dataFromBtn === '%') {
         // THEN INVOKE convertNumberToPercent function
         convertNumberToPercent();
     }
@@ -227,8 +221,8 @@ const calculatorFunctions = function calculatorFunctionsThroughTheEvents(event) 
             convertToNegativeOrPositiveNumber(numberFromData);
         }
     }
-     // ELSE IF dataFromBtn is a point
-     else if (dataFromBtn === '.') {
+    // ELSE IF dataFromBtn is a point
+    else if (dataFromBtn === '.') {
         // THEN INVOKES convertNumberIntoDecimal function
         convertNumberIntoDecimal();
     }
@@ -238,6 +232,34 @@ const calculatorFunctions = function calculatorFunctionsThroughTheEvents(event) 
         isBackspacedWasPressed();
     }
 };
+
+// DEFINE isNumberBeyondLimit function expression
+const isNumberBeyondLimit = function isNumberBeyondLimitToGreaterOrSmallerValue(number) {
+    // IF number is decimal
+    if (number % 1 !== 0) {
+        // THEN INIT digitLength of the decimal
+        const digitLength = Math.floor(Math.abs(number)).toString().length;
+        // INIT fractionalLength to fixed the decimal
+        const fractionalLength = Math.max(0, 9 - digitLength);
+        // SET number to a fixed decimal position
+        number = Number(number.toFixed(fractionalLength));
+    }
+    // IF number goes beyond value
+    if (number === Infinity || Math.abs(number) > 999999999 || Math.abs(number) < 0.0000000001) {
+        outputContainer.textContent = "NO";
+        // reset to initial state
+        firstNumber = 0;
+        secondNumber = 0;
+        operator = null;
+        numberFromData = [];
+        numberFromResultOperation = [];
+    }
+    // ELSE print out the number and set second for next expression
+    else {
+        outputContainer.textContent = number;
+        secondNumber = 0;
+    }
+}
 
 // ADD EVENT LISTENER delegation to any button clicked
 calculatorContainer.addEventListener('click', (event) => {
