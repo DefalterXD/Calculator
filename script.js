@@ -25,18 +25,24 @@ const isNumberWasInputed = function isNumberWasInputedAtTheStartOfTheExpression(
         outputContainer.textContent = numberFromData.join('');
     }
     // ELSE IF input equals to zero 
-    else if (Number(input) === 0) {
+    else if (Number(input) === 0 && numberFromData.length < 9) {
         // THEN push the number into array
         numberFromData.push(input);
         // THEN output the result from all elements and delete the commas
         outputContainer.textContent = numberFromData.join('');
     }
     // ELSE IF the input data is a number 
-    else if (Number(input)) {
+    else if (Number(input) && !numberFromData.includes('.') && numberFromData.length < 9) {
         // THEN push the number into array
         numberFromData.push(input);
         // PRINT out output the result from all elements and delete the commas
         outputContainer.textContent = numberFromData.join('');
+    } 
+    else if (Number(input) && numberFromData.includes('.') && numberFromData.length < 10) {
+         // THEN push the number into array
+         numberFromData.push(input);
+         // PRINT out output the result from all elements and delete the commas
+         outputContainer.textContent = numberFromData.join('');
     }
 };
 
