@@ -101,6 +101,10 @@ body {
     gap: 1px;
 }
 
+.numbers__container>.number__btn:last-child {
+    flex: 1;
+}
+
 .operations__container {
     display: flex;
     flex-direction: column;
