@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 * {
     padding: 0;
     margin: 0;
@@ -10,6 +11,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: #242933;
+    font-family: 'Source Code Pro', sans-serif;
 }
 
 .calculator__container {
@@ -40,7 +42,6 @@ body {
     border: 3px solid #596172;
     border-radius: 12px;
     padding: 0.4rem;
-    font-style: italic;
 }
 
 .calculator__object-round {
