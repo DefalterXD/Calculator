@@ -38,7 +38,7 @@ const isNumberWasInputed = function isNumberWasInputedAtTheStartOfTheExpression(
         // PRINT out output the result from all elements and delete the commas
         outputContainer.textContent = numberFromData.join('');
     } 
-    else if (Number(input) && numberFromData.includes('.') && numberFromData.length < 10) {
+    else if (Number(input) && numberFromData.includes('.') && numberFromData.length < 9) {
          // THEN push the number into array
          numberFromData.push(input);
          // PRINT out output the result from all elements and delete the commas
