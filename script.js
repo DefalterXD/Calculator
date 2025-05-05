@@ -246,7 +246,7 @@ const isNumberBeyondLimit = function isNumberBeyondLimitToGreaterOrSmallerValue(
         // THEN INIT digitLength of the decimal
         const digitLength = Math.floor(Math.abs(number)).toString().length;
         // INIT fractionalLength to fixed the decimal
-        const fractionalLength = Math.max(0, 9 - digitLength);
+        const fractionalLength = Math.max(0, 8 - digitLength);
         // SET number to a fixed decimal position
         number = Number(number.toFixed(fractionalLength));
     }
