@@ -7,7 +7,7 @@ This is a simple calculator project with basic operations. And with conversion o
 
 ## How It's Made:
 
-*Tech used:** HTML, CSS, JavaScript
+**Tech used:** HTML, CSS, JavaScript
 
 This project can be separate into two phases:
 <ol>
