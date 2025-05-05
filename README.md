@@ -11,8 +11,8 @@ This is a simple calculator project with basic operations. And with conversion o
 
 This project can be separate into two phases:
 <ol>
-  <li>Setting up the calculator layout<li>
-  <li>Adding core functionality of calculator<li>
+  <li>Setting up the calculator layout</li>
+  <li>Adding core functionality of calculator</li>
 </ol>
 
 In the first phase, there was complications regarding the flex layout and how to make all the button be like the grid scheme. With different versions of how the buttons need to be placed.
